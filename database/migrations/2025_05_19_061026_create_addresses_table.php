@@ -14,12 +14,14 @@ return new class extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('house_no')->nullable();
+            $table->string('house_block_lot')->nullable();
             $table->string('street')->nullable();
+            $table->string('subdivision')->nullable();
             $table->string('barangay');
             $table->string('city');
             $table->string('province');
             $table->string('zip_code')->nullable();
+            $table->enum('type',['residential','permanent'])->default('residential');
             $table->timestamps();
         });
     }

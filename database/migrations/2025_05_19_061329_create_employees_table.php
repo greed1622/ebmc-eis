@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->string('employee_no')->unique();
-            $table->enum('status', ['active,inactive'])->default('active');
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('position_id')->constrained()->onDelete('cascade');
             $table->foreignId('department_id')->constrained()->onDelete('cascade');
